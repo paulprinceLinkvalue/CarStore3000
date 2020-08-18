@@ -19,10 +19,17 @@ def resultat():
     with_child = result['with_child']
     place_of_residence = result['place_of_residence']
     budget = result['budget']
+    default_budget = 15000
 
-    where_query = ''
     if budget:
         where_query = ' Where price_eur < ' + budget
+    else:
+        where_query = ' Where price_eur < ' + budget
+
+    if with_child == "oui":
+        where_query += ' And body_type = \'van\''
+    else:
+        where_query += ' And body_type = \'compact\''
 
     sql_query = 'SELECT * FROM Cars ' + where_query + ' Limit 10'
 
