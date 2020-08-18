@@ -5,8 +5,17 @@
 			<title>Resultat</title>
 		</head>
 		<body>
-			<p>Bonjour {{prenom}}, j'espère que vous allez bien.</p>
+			<p>Bonjour {{prenom}}, Voici la liste des voitures recommandées.</p>
+
+		<table border="1" cellpadding="5" cellspacing="5">
+			{% for post in posts %}
+			<tr>
+			{% for d in post %}
+			<td>{{d}}</td>
+			{% endfor %}
+			</tr>
+			{% endfor %}
+		</table>
 		</body>
 	</html>
 
-    
